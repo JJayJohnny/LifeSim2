@@ -32,17 +32,18 @@ public class Swiat {
             }
         }
 
+        PogrzebZmarlych();
         organizmy.sort((Organizm o1, Organizm o2) -> {
             if(o1.GetInicjatywa() != o2.GetInicjatywa()){
-                return (o1.GetInicjatywa() - o2.GetInicjatywa());
+                return (o2.GetInicjatywa() - o1.GetInicjatywa());
             }
             else
-                return o1.GetWiek() - o2.GetWiek();
+                return o2.GetWiek() - o1.GetWiek();
         });
 
-        okno.plansza.colorBoard = PrzygotujPlansze();
         okno.plansza.repaint();
         tura++;
+        System.out.println(organizmy.size());
     }
 
     void DodajOrganizm(Organizm nowy){
@@ -72,7 +73,7 @@ public class Swiat {
         return pola;
     }
 
-    Color[][] PrzygotujPlansze(){
+    public Color[][] PrzygotujPlansze(){
         Color[][] plansza = new Color[wysokosc][szerokosc];
         for(int i=0; i<szerokosc; i++)
             for(int j=0; j<wysokosc; j++)
@@ -81,8 +82,18 @@ public class Swiat {
         for(Organizm o : organizmy){
             int x = o.GetPozycja().x;
             int y = o.GetPozycja().y;
-            plansza[y][x] = o.GetKolor();
+            if(o.Zywy())
+                plansza[y][x] = o.GetKolor();
         }
         return plansza;
+    }
+
+    void PogrzebZmarlych(){
+        for(int i=0; i<organizmy.size(); i++){
+            if(!organizmy.get(i).Zywy()){
+                organizmy.remove(i);
+                i--;
+            }
+        }
     }
 }
