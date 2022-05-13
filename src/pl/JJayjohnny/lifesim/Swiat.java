@@ -11,8 +11,9 @@ public class Swiat {
 
     int szerokosc;
     int wysokosc;
-    Okno okno;
+    public Okno okno;
     List<Organizm> organizmy = new LinkedList<>();
+    //TODO logi
     int tura;
     boolean symuluj;
 
@@ -46,13 +47,13 @@ public class Swiat {
         System.out.println(organizmy.size());
     }
 
-    void DodajOrganizm(Organizm nowy){
+    public void DodajOrganizm(Organizm nowy){
         organizmy.add(nowy);
     }
 
-    Organizm ZnajdzOrganizmNaPolu(Punkt pozycja, Organizm wylaczony){
+    public Organizm ZnajdzOrganizmNaPolu(Punkt pozycja, Organizm wylaczony){
         for(Organizm o : organizmy){
-            if(o.GetPozycja().x == pozycja.x && o.GetPozycja().y == pozycja.y && o.hashCode()!=wylaczony.hashCode()) {
+            if(o.GetPozycja().x == pozycja.x && o.GetPozycja().y == pozycja.y && (wylaczony==null || o.hashCode()!=wylaczony.hashCode())) {
                 return o;
             }
         }

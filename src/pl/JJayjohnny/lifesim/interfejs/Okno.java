@@ -20,6 +20,7 @@ public class Okno extends JFrame implements KeyListener{
         setTitle("LifeSim2 - Project by Jan Barczewski (188679)");
         //setMinimumSize(new Dimension((szerokosc)*Plansza.WIELKOSC_POLA, (wysokosc)*Plansza.WIELKOSC_POLA));
         getContentPane().setPreferredSize(new Dimension((szerokosc)*Plansza.WIELKOSC_POLA, (wysokosc)*Plansza.WIELKOSC_POLA));
+        getContentPane().setMinimumSize(new Dimension((szerokosc)*Plansza.WIELKOSC_POLA, (wysokosc)*Plansza.WIELKOSC_POLA));
         plansza = new Plansza(szerokosc, wysokosc, swiat);
         add(plansza);
         plansza.setVisible(true);
