@@ -13,8 +13,8 @@ public abstract class Roslina extends Organizm{
 
     abstract public Organizm KlonujSiebie(Punkt pozycja);
 
-    public Roslina(Swiat swiat, Punkt pozycja, int sila, char znak, Color kolor, int szansaNaRozrost, int iloscProbRozrostu){
-        super(swiat, pozycja, sila, INICJATYWA_ROSLIN, znak, kolor);
+    public Roslina(Swiat swiat, Punkt pozycja, int sila, String nazwa, Color kolor, int szansaNaRozrost, int iloscProbRozrostu){
+        super(swiat, pozycja, sila, INICJATYWA_ROSLIN, nazwa, kolor);
         this.szansaNaRozrost = szansaNaRozrost;
         this.iloscProbRozrostu = iloscProbRozrostu;
     }

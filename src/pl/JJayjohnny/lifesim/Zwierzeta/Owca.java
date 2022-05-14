@@ -10,11 +10,11 @@ import java.awt.*;
 public class Owca extends Zwierze {
     public static final int SILA_OWCY = 4;
     public static final int INICJATYWA_OWCY = 4;
-    public static final char ZNAK_OWCY = 'o';
+    public static final String NAZWA_OWCY = "Owca";
     public static final Color KOLOR_OWCY = Color.gray;
 
     public Owca(Swiat swiat, Punkt pozycja){
-        super(swiat, pozycja, SILA_OWCY, INICJATYWA_OWCY, ZNAK_OWCY, KOLOR_OWCY, ZWYKLY_ZASIEG_RUCHU, ZWYKLA_SZANSA_NA_RUCH);
+        super(swiat, pozycja, SILA_OWCY, INICJATYWA_OWCY, NAZWA_OWCY, KOLOR_OWCY, ZWYKLY_ZASIEG_RUCHU, ZWYKLA_SZANSA_NA_RUCH);
     }
 
     @Override

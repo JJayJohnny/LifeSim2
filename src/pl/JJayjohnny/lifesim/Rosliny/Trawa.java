@@ -9,11 +9,11 @@ import java.awt.*;
 
 public class Trawa extends Roslina {
     public static final int SILA_TRAWY = 0;
-    public static final char ZNAK_TRAWY = 't';
+    public static final String NAZWA_TRAWY = "Trawa";
     public static final Color KOLOR_TRAWY = Color.green;
 
     public Trawa(Swiat swiat, Punkt pozycja){
-        super(swiat, pozycja, SILA_TRAWY, ZNAK_TRAWY, KOLOR_TRAWY, SZANSA_NA_ROZROST, ILOSC_PROB_ROZROSTU);
+        super(swiat, pozycja, SILA_TRAWY, NAZWA_TRAWY, KOLOR_TRAWY, SZANSA_NA_ROZROST, ILOSC_PROB_ROZROSTU);
     }
 
     @Override

@@ -15,8 +15,8 @@ public abstract class Zwierze extends Organizm{
     abstract public boolean TakiSamGatunek(Organizm inny);
     abstract public Organizm KlonujSiebie(Punkt pozycja);
 
-    public Zwierze(Swiat swiat, Punkt pozycja, int sila, int inicjatywa, char znak, Color kolor, int zasiegRuchu, int szansaNaRuch){
-        super(swiat, pozycja, sila, inicjatywa, znak, kolor);
+    public Zwierze(Swiat swiat, Punkt pozycja, int sila, int inicjatywa, String nazwa, Color kolor, int zasiegRuchu, int szansaNaRuch){
+        super(swiat, pozycja, sila, inicjatywa, nazwa, kolor);
         this.zasiegRuchu = zasiegRuchu;
         this.szansaNaRuch = szansaNaRuch;
         this.poprzedniaPozycja = pozycja;
@@ -32,7 +32,7 @@ public abstract class Zwierze extends Organizm{
         this.SetWiek(this.GetWiek()+1);
     }
 
-    void Ruch(){
+    protected void Ruch(){
         int czyRuch = (int)(Math.random()*100);
         if(czyRuch < szansaNaRuch){
             Vector<Punkt> pola = swiat.GetSasiedniePola(this.GetPozycja());

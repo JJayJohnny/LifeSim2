@@ -1,5 +1,6 @@
 package pl.JJayjohnny.lifesim;
 
+import pl.JJayjohnny.lifesim.Zwierzeta.Czlowiek;
 import pl.JJayjohnny.lifesim.interfejs.Okno;
 
 import java.awt.*;
@@ -9,24 +10,30 @@ import java.util.Vector;
 
 public class Swiat {
 
-    int szerokosc;
-    int wysokosc;
+    public int szerokosc;
+    public int wysokosc;
     public Okno okno;
     List<Organizm> organizmy = new LinkedList<>();
     //TODO logi
     int tura;
     boolean symuluj;
+    public FabrykaOrganizmow fabrykaOrganizmow;
 
     Swiat(int szerokosc, int wysokosc){
         this.szerokosc = szerokosc;
         this.wysokosc = wysokosc;
         okno = new Okno(this, szerokosc, wysokosc);
+        fabrykaOrganizmow = new FabrykaOrganizmow(this);
     }
 
-    public void WykonajTure(){
+    public void WykonajTure(Kierunek kierunekCzlowieka){
         for(int i=0; i<organizmy.size(); i++){
             if(organizmy.get(i).Zywy()){
                 //System.out.println(o);
+                if(organizmy.get(i) instanceof Czlowiek){
+                    Czlowiek c = (Czlowiek) organizmy.get(i);
+                    c.kierunek = kierunekCzlowieka;
+                }
                 organizmy.get(i).Akcja();
                 Organizm przeciwnik = ZnajdzOrganizmNaPolu(organizmy.get(i).GetPozycja(), organizmy.get(i));
                 organizmy.get(i).Kolizja(przeciwnik);
@@ -45,6 +52,7 @@ public class Swiat {
         okno.plansza.repaint();
         tura++;
         System.out.println(organizmy.size());
+        System.out.println(organizmy);
     }
 
     public void DodajOrganizm(Organizm nowy){
@@ -60,7 +68,7 @@ public class Swiat {
         return null;
     }
 
-    Vector<Punkt> GetSasiedniePola(Punkt pole){
+    public Vector<Punkt> GetSasiedniePola(Punkt pole){
         Vector<Punkt> pola = new Vector<>();
         if(pole.x > 0)
             pola.add(new Punkt(pole.x - 1, pole.y));
@@ -94,6 +102,15 @@ public class Swiat {
             if(!organizmy.get(i).Zywy()){
                 organizmy.remove(i);
                 i--;
+            }
+        }
+    }
+
+    public void UmiejetnoscCzlowieka(){
+        for(Organizm o : organizmy){
+            if(o instanceof Czlowiek) {
+                Czlowiek c = (Czlowiek) o;
+                c.AktywujUmiejetnosc();
             }
         }
     }

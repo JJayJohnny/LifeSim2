@@ -5,17 +5,17 @@ import java.awt.*;
 public abstract class Organizm {
     private int sila, inicjatywa;
     private Punkt pozycja;
-    private char znak;
+    private String nazwa;
     private Color kolor;
     private boolean zyje;
     private int wiek;
     protected Swiat swiat;
 
-    public Organizm(Swiat swiat, Punkt pozycja, int sila, int inicjatywa, char znak, Color kolor){
+    public Organizm(Swiat swiat, Punkt pozycja, int sila, int inicjatywa, String nazwa, Color kolor){
         this.swiat = swiat;
         this.pozycja = pozycja;
         this.inicjatywa = inicjatywa;
-        this.znak = znak;
+        this.nazwa = nazwa;
         this.kolor = kolor;
         this.wiek = 0;
         this.zyje = true;
@@ -25,8 +25,8 @@ public abstract class Organizm {
     public abstract void Akcja();
     public abstract void Kolizja(Organizm inny);
     public abstract void RozmnozSie();
-    public char GetChar(){
-        return znak;
+    public String GetNazwa(){
+        return nazwa;
     }
     public Color GetKolor(){
         return kolor;
@@ -69,6 +69,6 @@ public abstract class Organizm {
     }
     @Override
     public String toString(){
-        return this.znak+"(pozycja: "+pozycja+" wiek: "+wiek+" sila: "+sila+")";
+        return this.nazwa+"(pozycja: "+pozycja+" wiek: "+wiek+" sila: "+sila+")";
     }
 }

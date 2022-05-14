@@ -2,7 +2,6 @@ package pl.JJayjohnny.lifesim.interfejs;
 
 import pl.JJayjohnny.lifesim.Punkt;
 import pl.JJayjohnny.lifesim.Swiat;
-import sun.java2d.loops.DrawRect;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,7 +58,7 @@ public class Plansza extends JPanel implements MouseListener, MouseMotionListene
             System.out.println("Kliknieto w pole (" + x + "," + y + ")");
             Punkt p = new Punkt(x, y);
             if(swiat.ZnajdzOrganizmNaPolu(p, null)==null) {
-                menuOrganizmow = new MenuOrganizmow(swiat, p, event.getX(), event.getY());
+                menuOrganizmow = new MenuOrganizmow(swiat, p, event.getXOnScreen(), event.getYOnScreen());
             }
         }
     }

@@ -1,7 +1,7 @@
 package pl.JJayjohnny.lifesim;
 
 public class Punkt {
-    int x, y;
+    public int x, y;
     public Punkt(int x, int y){
         this.x = x;
         this.y = y;

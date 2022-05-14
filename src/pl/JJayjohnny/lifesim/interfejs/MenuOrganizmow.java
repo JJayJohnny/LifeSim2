@@ -1,5 +1,6 @@
 package pl.JJayjohnny.lifesim.interfejs;
 
+import pl.JJayjohnny.lifesim.FabrykaOrganizmow;
 import pl.JJayjohnny.lifesim.Organizm;
 import pl.JJayjohnny.lifesim.Punkt;
 import pl.JJayjohnny.lifesim.Rosliny.Trawa;
@@ -9,6 +10,7 @@ import pl.JJayjohnny.lifesim.Zwierzeta.Owca;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -29,21 +31,8 @@ public class MenuOrganizmow extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if(e.getValueIsAdjusting()) {
-                    Organizm nowy = null;
-                    switch (listaOrganizmow.getSelectedValue()) {
-                        case "Owca":
-                            nowy = new Owca(swiat, pozycja);
-                            break;
-                        case "Trawa":
-                            nowy = new Trawa(swiat, pozycja);
-                            break;
-                    }
-                    if (nowy != null) {
-                        swiat.DodajOrganizm(nowy);
-                    }
-                    //TODO
-                    //fabryka organizmow
-                    //i oddzielna funkcja rysujaca plansze
+                    swiat.fabrykaOrganizmow.StworzOrganizm(listaOrganizmow.getSelectedValue(), pozycja);
+                    //TODO oddzielna funkcja rysujaca plansze
                     swiat.okno.plansza.repaint();
                     setVisible(false);
                 }
@@ -52,6 +41,8 @@ public class MenuOrganizmow extends JFrame {
         add(listaOrganizmow);
         setSize(100, 200);
         setLocation(windowX, windowY);
+        listaOrganizmow.setBackground(Color.cyan);
+        setUndecorated(true);
         setVisible(true);
         addWindowFocusListener(new WindowAdapter() {
             @Override
