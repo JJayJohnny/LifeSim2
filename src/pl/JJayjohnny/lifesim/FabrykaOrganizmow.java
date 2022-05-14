@@ -20,7 +20,8 @@ public class FabrykaOrganizmow {
         }
         if (nowy != null) {
             swiat.DodajOrganizm(nowy);
-            System.out.println("Dodano organizm: "+nowy);
+            //System.out.println("Dodano organizm: "+nowy);
+            swiat.DodajLog("Dodano organizm: "+nowy);
         }
     }
 }

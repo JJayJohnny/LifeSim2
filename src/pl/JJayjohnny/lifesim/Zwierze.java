@@ -64,11 +64,13 @@ public abstract class Zwierze extends Organizm{
                 }
                 else if(this.GetSila() >= inny.GetSila()){
                     inny.Zgin();
-                    System.out.println(this+" atakuje i zabija "+inny);
+                    //System.out.println(this+" atakuje i zabija "+inny);
+                    swiat.DodajLog(this+" atakuje i zabija "+inny);
                 }
                 else{
                     this.Zgin();
-                    System.out.println(this+" atakuje "+inny+" ale przegrywa");
+                    //System.out.println(this+" atakuje "+inny+" ale przegrywa");
+                    swiat.DodajLog(this+" atakuje "+inny+" ale przegrywa");
                 }
             }
             else{
@@ -85,7 +87,8 @@ public abstract class Zwierze extends Organizm{
             if(swiat.ZnajdzOrganizmNaPolu(pola.get(i), this) == null){
                 Organizm dziecko = this.KlonujSiebie(pola.get(i));
                 swiat.DodajOrganizm(dziecko);
-                System.out.println("Rodzi sie "+dziecko);
+                //System.out.println("Rodzi sie "+dziecko);
+                swiat.DodajLog("Rodzi sie "+dziecko);
                 break;
             }
             else

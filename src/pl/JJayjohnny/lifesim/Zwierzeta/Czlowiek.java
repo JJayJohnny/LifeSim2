@@ -1,10 +1,8 @@
 package pl.JJayjohnny.lifesim.Zwierzeta;
 
-import javafx.scene.input.KeyCode;
 import pl.JJayjohnny.lifesim.*;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.Vector;
 
 public class Czlowiek extends Zwierze {
@@ -69,11 +67,13 @@ public class Czlowiek extends Zwierze {
                 Organizm o = swiat.ZnajdzOrganizmNaPolu(sasiedniePola.get(i), this);
                 if(o!= null){
                     o.Zgin();
-                    System.out.println(this+" pali umiejetnoscia "+o);
+                    //System.out.println(this+" pali umiejetnoscia "+o);
+                    swiat.DodajLog(this+" pali umiejetnoscia "+o);
                 }
             }
         }
-        System.out.println("Cooldown umiejetnosci: "+cooldownUmiejetnosci+" czas trwania: "+pozostalyCzasTrwaniaUmiejetnosci);
+        //System.out.println("Cooldown umiejetnosci: "+cooldownUmiejetnosci+" czas trwania: "+pozostalyCzasTrwaniaUmiejetnosci);
+        swiat.DodajLog("Cooldown umiejetnosci: "+cooldownUmiejetnosci+" czas trwania: "+pozostalyCzasTrwaniaUmiejetnosci);
     }
 
     public void AktywujUmiejetnosc(){

@@ -14,7 +14,9 @@ public class Swiat {
     public int wysokosc;
     public Okno okno;
     List<Organizm> organizmy = new LinkedList<>();
-    //TODO logi
+    List<String> logi = new LinkedList<>();
+    List<SluchaczLogow> sluchaczeLogow = new LinkedList<>();
+
     int tura;
     boolean symuluj;
     public FabrykaOrganizmow fabrykaOrganizmow;
@@ -27,6 +29,8 @@ public class Swiat {
     }
 
     public void WykonajTure(Kierunek kierunekCzlowieka){
+        logi.clear();
+
         for(int i=0; i<organizmy.size(); i++){
             if(organizmy.get(i).Zywy()){
                 //System.out.println(o);
@@ -50,9 +54,10 @@ public class Swiat {
         });
 
         okno.plansza.repaint();
+        for(SluchaczLogow s : sluchaczeLogow)
+            s.AktualizujLogi();
+
         tura++;
-        System.out.println(organizmy.size());
-        System.out.println(organizmy);
     }
 
     public void DodajOrganizm(Organizm nowy){
@@ -113,5 +118,17 @@ public class Swiat {
                 c.AktywujUmiejetnosc();
             }
         }
+    }
+
+    public void DodajLog(String log){
+        logi.add(log);
+    }
+
+    public List<String> GetLogi(){
+        return logi;
+    }
+
+    public void DodajSluchaczaLogow(SluchaczLogow s){
+        sluchaczeLogow.add(s);
     }
 }

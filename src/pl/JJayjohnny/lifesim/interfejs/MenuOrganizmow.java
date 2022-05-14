@@ -1,11 +1,7 @@
 package pl.JJayjohnny.lifesim.interfejs;
 
-import pl.JJayjohnny.lifesim.FabrykaOrganizmow;
-import pl.JJayjohnny.lifesim.Organizm;
 import pl.JJayjohnny.lifesim.Punkt;
-import pl.JJayjohnny.lifesim.Rosliny.Trawa;
 import pl.JJayjohnny.lifesim.Swiat;
-import pl.JJayjohnny.lifesim.Zwierzeta.Owca;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;

@@ -40,6 +40,8 @@ public class Menu extends JMenuBar implements ActionListener {
 
         if(e.getSource() == logi){
             System.out.println("logi");
+            OknoLogow logi = new OknoLogow(swiat);
+            swiat.DodajSluchaczaLogow(logi);
         }
     }
 }

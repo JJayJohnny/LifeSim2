@@ -35,7 +35,8 @@ public abstract class Roslina extends Organizm{
     public void Kolizja(Organizm inny){
         if(inny != null){
             this.Zgin();
-            System.out.println(inny+" zjada "+this);
+            //System.out.println(inny+" zjada "+this);
+            swiat.DodajLog(inny+" zjada "+this);
         }
     }
 
@@ -47,7 +48,8 @@ public abstract class Roslina extends Organizm{
             if(swiat.ZnajdzOrganizmNaPolu(pola.get(i), this) == null){
                 Organizm dziecko = this.KlonujSiebie(pola.get(i));
                 swiat.DodajOrganizm(dziecko);
-                System.out.println(dziecko+ " rosnie");
+                //System.out.println(dziecko+ " rosnie");
+                swiat.DodajLog(dziecko+" rosnie");
                 break;
             }
             else
