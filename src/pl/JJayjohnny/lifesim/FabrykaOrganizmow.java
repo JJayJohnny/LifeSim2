@@ -1,7 +1,10 @@
 package pl.JJayjohnny.lifesim;
 
 import pl.JJayjohnny.lifesim.Rosliny.Trawa;
+import pl.JJayjohnny.lifesim.Zwierzeta.Lis;
 import pl.JJayjohnny.lifesim.Zwierzeta.Owca;
+import pl.JJayjohnny.lifesim.Zwierzeta.Wilk;
+import pl.JJayjohnny.lifesim.Zwierzeta.Zolw;
 
 public class FabrykaOrganizmow {
     Swiat swiat;
@@ -16,6 +19,15 @@ public class FabrykaOrganizmow {
                 break;
             case "Trawa":
                 nowy = new Trawa(swiat, pozycja);
+                break;
+            case "Wilk":
+                nowy = new Wilk(swiat, pozycja);
+                break;
+            case "Lis":
+                nowy = new Lis(swiat, pozycja);
+                break;
+            case "Zolw":
+                nowy = new Zolw(swiat, pozycja);
                 break;
         }
         if (nowy != null) {

@@ -19,7 +19,10 @@ public class MenuOrganizmow extends JFrame {
         this.swiat = swiat;
         this.pozycja = pozycja;
         DefaultListModel<String> model = new DefaultListModel<>();
+        model.addElement("Wilk");
         model.addElement("Owca");
+        model.addElement("Lis");
+        model.addElement("Zolw");
         model.addElement("Trawa");
         listaOrganizmow = new JList<>(model);
         listaOrganizmow.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

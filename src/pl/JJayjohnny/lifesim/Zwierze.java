@@ -58,9 +58,10 @@ public abstract class Zwierze extends Organizm{
             else if(inny instanceof Zwierze){
                 if (inny.CzyOdbilAtak(this)) {
                     this.CofnijSie();
+                    swiat.DodajLog(inny+" zablokowal atak "+this);
                 }
                 else if(inny.CzyUciekl(this)){
-
+                    swiat.DodajLog(inny+" ucieka przed atakiem "+this);
                 }
                 else if(this.GetSila() >= inny.GetSila()){
                     inny.Zgin();
