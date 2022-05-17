@@ -1,6 +1,9 @@
 package pl.JJayjohnny.lifesim;
 
 import java.awt.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public abstract class Organizm {
     private int sila, inicjatywa;
@@ -70,5 +73,18 @@ public abstract class Organizm {
     @Override
     public String toString(){
         return this.nazwa+"(pozycja: "+pozycja+" wiek: "+wiek+" sila: "+sila+")";
+    }
+
+    public void Zapisz(FileWriter fileWriter){
+        try {
+            fileWriter.append(nazwa + " " + pozycja.x + " " + pozycja.y + " " + sila + " " + wiek+"\n");
+        }catch (IOException e){
+            System.out.println("ERROR SAVING");
+        }
+    }
+
+    public void Wczytaj(Scanner scanner){
+        this.sila = scanner.nextInt();
+        this.wiek = scanner.nextInt();
     }
 }

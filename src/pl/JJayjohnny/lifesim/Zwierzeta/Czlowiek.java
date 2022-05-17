@@ -3,6 +3,9 @@ package pl.JJayjohnny.lifesim.Zwierzeta;
 import pl.JJayjohnny.lifesim.*;
 
 import java.awt.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class Czlowiek extends Zwierze {
@@ -92,5 +95,24 @@ public class Czlowiek extends Zwierze {
     @Override
     public Organizm KlonujSiebie(Punkt pozycja){
         return new Czlowiek(swiat, pozycja);
+    }
+
+    @Override
+    public void Zapisz(FileWriter fileWriter){
+        try{
+            fileWriter.append(this.GetNazwa()+" "+this.GetPozycja().x+" "+this.GetPozycja().y+" "+this.GetSila()+" "+this.GetWiek()+" "+pozostalyCzasTrwaniaUmiejetnosci+" "+cooldownUmiejetnosci+"\n");
+        }catch (IOException e){
+            System.out.println("ERROR SAVING");
+        }
+    }
+
+    @Override
+    public void Wczytaj(Scanner scanner){
+        this.SetSila(scanner.nextInt());
+        this.SetWiek(scanner.nextInt());
+        this.pozostalyCzasTrwaniaUmiejetnosci = scanner.nextInt();
+        this.cooldownUmiejetnosci = scanner.nextInt();
+        if(pozostalyCzasTrwaniaUmiejetnosci > 0)
+            umiejetnoscAktywna = true;
     }
 }

@@ -8,7 +8,7 @@ public class FabrykaOrganizmow {
     public FabrykaOrganizmow(Swiat swiat){
         this.swiat = swiat;
     }
-    public void StworzOrganizm(String nazwa, Punkt pozycja){
+    public Organizm StworzOrganizm(String nazwa, Punkt pozycja){
         Organizm nowy = null;
         switch (nazwa) {
             case "Owca":
@@ -41,11 +41,17 @@ public class FabrykaOrganizmow {
             case "BarszczSosnowskiego":
                 nowy = new BarszczSosnowskiego(swiat, pozycja);
                 break;
+            case "Czlowiek":
+                nowy = new Czlowiek(swiat, pozycja);
+                break;
         }
         if (nowy != null) {
             swiat.DodajOrganizm(nowy);
             //System.out.println("Dodano organizm: "+nowy);
             swiat.DodajLog("Dodano organizm: "+nowy);
+            return nowy;
         }
+        else
+            return null;
     }
 }

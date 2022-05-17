@@ -33,9 +33,24 @@ public class Menu extends JMenuBar implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == wczytaj){
             System.out.println("wczytaj");
+            String sciezka = JOptionPane.showInputDialog(
+                    null,
+                    "Wpisz nazwe pliku do wczytania:",
+                    "Wczytaj",
+                    JOptionPane.QUESTION_MESSAGE
+            );
+            swiat.kreatorSwiata.WczytajSwiat(swiat, sciezka);
         }
         if(e.getSource() == zapisz){
-            System.out.println("Zapisz");
+            String sciezka = JOptionPane.showInputDialog(
+                    null,
+                   "Wpisz nazwe pliku do zapisania:",
+                    "Zapis",
+                    JOptionPane.QUESTION_MESSAGE
+            );
+            System.out.println(sciezka);
+            if(sciezka != null)
+                swiat.ZapiszSwiat(sciezka);
         }
 
         if(e.getSource() == logi){

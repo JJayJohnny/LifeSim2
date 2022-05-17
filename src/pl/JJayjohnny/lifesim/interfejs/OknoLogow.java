@@ -6,7 +6,7 @@ import pl.JJayjohnny.lifesim.Swiat;
 import javax.swing.*;
 import java.util.List;
 
-public class OknoLogow  extends JFrame implements SluchaczLogow {
+public class OknoLogow extends JFrame implements SluchaczLogow {
 
     Swiat swiat;
     JTextArea textArea;
@@ -33,5 +33,9 @@ public class OknoLogow  extends JFrame implements SluchaczLogow {
             textArea.append(log);
             textArea.append("\n");
         }
+    }
+
+    public void Zamknij(){
+        dispose();
     }
 }

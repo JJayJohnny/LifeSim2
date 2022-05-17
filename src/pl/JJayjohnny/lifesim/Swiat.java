@@ -4,11 +4,18 @@ import pl.JJayjohnny.lifesim.Zwierzeta.Czlowiek;
 import pl.JJayjohnny.lifesim.interfejs.Okno;
 
 import java.awt.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Vector;
 
 public class Swiat {
+    public static final String folderZapisow="saves/";
+
+    public KreatorSwiata kreatorSwiata;
 
     public int szerokosc;
     public int wysokosc;
@@ -21,11 +28,12 @@ public class Swiat {
     boolean symuluj;
     public FabrykaOrganizmow fabrykaOrganizmow;
 
-    Swiat(int szerokosc, int wysokosc){
+    Swiat(int szerokosc, int wysokosc, KreatorSwiata kreatorSwiata){
         this.szerokosc = szerokosc;
         this.wysokosc = wysokosc;
         okno = new Okno(this, szerokosc, wysokosc);
         fabrykaOrganizmow = new FabrykaOrganizmow(this);
+        this.kreatorSwiata = kreatorSwiata;
     }
 
     public void WykonajTure(Kierunek kierunekCzlowieka){
@@ -130,5 +138,33 @@ public class Swiat {
 
     public void DodajSluchaczaLogow(SluchaczLogow s){
         sluchaczeLogow.add(s);
+    }
+
+    public void ZapiszSwiat(String nazwaPliku){
+        try {
+            FileWriter fileWriter = new FileWriter(folderZapisow+nazwaPliku);
+            fileWriter.write("");
+            fileWriter.append(szerokosc+" "+wysokosc+"\n");
+            fileWriter.append(tura+"\n");
+            for(Organizm o : organizmy){
+                o.Zapisz(fileWriter);
+            }
+            fileWriter.close();
+        }catch (IOException e){
+            System.out.println("ERROR SAVING");
+        }
+    }
+
+    public void WczytajSwiat(Scanner scanner){
+        this.tura = scanner.nextInt();
+        while(scanner.hasNext()){
+            String nazwa = scanner.next();
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            Organizm o = fabrykaOrganizmow.StworzOrganizm(nazwa, new Punkt(x, y));
+            o.Wczytaj(scanner);
+
+        }
+        scanner.close();
     }
 }
