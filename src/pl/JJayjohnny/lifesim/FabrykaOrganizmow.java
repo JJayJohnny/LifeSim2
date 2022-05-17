@@ -1,10 +1,7 @@
 package pl.JJayjohnny.lifesim;
 
-import pl.JJayjohnny.lifesim.Rosliny.Trawa;
-import pl.JJayjohnny.lifesim.Zwierzeta.Lis;
-import pl.JJayjohnny.lifesim.Zwierzeta.Owca;
-import pl.JJayjohnny.lifesim.Zwierzeta.Wilk;
-import pl.JJayjohnny.lifesim.Zwierzeta.Zolw;
+import pl.JJayjohnny.lifesim.Rosliny.*;
+import pl.JJayjohnny.lifesim.Zwierzeta.*;
 
 public class FabrykaOrganizmow {
     Swiat swiat;
@@ -17,9 +14,6 @@ public class FabrykaOrganizmow {
             case "Owca":
                 nowy = new Owca(swiat, pozycja);
                 break;
-            case "Trawa":
-                nowy = new Trawa(swiat, pozycja);
-                break;
             case "Wilk":
                 nowy = new Wilk(swiat, pozycja);
                 break;
@@ -28,6 +22,24 @@ public class FabrykaOrganizmow {
                 break;
             case "Zolw":
                 nowy = new Zolw(swiat, pozycja);
+                break;
+            case "Antylopa":
+                nowy = new Antylopa(swiat, pozycja);
+                break;
+            case "Trawa":
+                nowy = new Trawa(swiat, pozycja);
+                break;
+            case "Mlecz":
+                nowy = new Mlecz(swiat, pozycja);
+                break;
+            case "Guarana":
+                nowy = new Guarana(swiat, pozycja);
+                break;
+            case "WilczeJagody":
+                nowy = new WilczeJagody(swiat, pozycja);
+                break;
+            case "BarszczSosnowskiego":
+                nowy = new BarszczSosnowskiego(swiat, pozycja);
                 break;
         }
         if (nowy != null) {

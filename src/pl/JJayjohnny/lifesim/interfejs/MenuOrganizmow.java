@@ -23,7 +23,12 @@ public class MenuOrganizmow extends JFrame {
         model.addElement("Owca");
         model.addElement("Lis");
         model.addElement("Zolw");
+        model.addElement("Antylopa");
         model.addElement("Trawa");
+        model.addElement("Mlecz");
+        model.addElement("Guarana");
+        model.addElement("WilczeJagody");
+        model.addElement("BarszczSosnowskiego");
         listaOrganizmow = new JList<>(model);
         listaOrganizmow.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaOrganizmow.addListSelectionListener(new ListSelectionListener() {

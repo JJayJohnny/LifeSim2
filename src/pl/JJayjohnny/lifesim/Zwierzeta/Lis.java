@@ -36,7 +36,7 @@ public class Lis extends Zwierze {
             while(pola.size() > 0){
                 int r = (int)(Math.random()*100)%pola.size();
                 Organizm naPolu = swiat.ZnajdzOrganizmNaPolu(pola.get(r), this);
-                if(naPolu!= null && naPolu.GetSila() > this.GetSila()){
+                if(naPolu!= null && naPolu.GetSila() > this.GetSila() && !this.TakiSamGatunek(naPolu)){
                     pola.remove(r);
                     swiat.DodajLog(this+" wyczul "+naPolu+" i nie zaatakowal");
                 }

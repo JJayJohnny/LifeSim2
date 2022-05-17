@@ -6,7 +6,7 @@ import java.util.Vector;
 public abstract class Roslina extends Organizm{
     public static final int SZANSA_NA_ROZROST = 10;
     public static final int ILOSC_PROB_ROZROSTU = 1;
-    public static final int INICJATYWA_ROSLIN = 1;
+    public static final int INICJATYWA_ROSLIN = 0;
 
     int szansaNaRozrost;
     int iloscProbRozrostu;

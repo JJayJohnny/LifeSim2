@@ -10,14 +10,16 @@ public class OknoLogow  extends JFrame implements SluchaczLogow {
 
     Swiat swiat;
     JTextArea textArea;
+    JScrollPane scrollPane;
 
     public OknoLogow(Swiat swiat){
         this.swiat = swiat;
         this.setTitle("Logi ze swiata");
         setResizable(false);
         textArea = new JTextArea();
-        add(textArea);
-        setSize(600, 300);
+        scrollPane = new JScrollPane(textArea);
+        add(scrollPane);
+        setSize(700, 300);
         textArea.setVisible(true);
         textArea.setEditable(false);
         setVisible(true);
