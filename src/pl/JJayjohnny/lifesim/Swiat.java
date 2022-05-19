@@ -22,7 +22,7 @@ public class Swiat {
     public Okno okno;
     List<Organizm> organizmy = new LinkedList<>();
     List<String> logi = new LinkedList<>();
-    List<SluchaczLogow> sluchaczeLogow = new LinkedList<>();
+    public List<SluchaczLogow> sluchaczeLogow = new LinkedList<>();
 
     int tura;
     boolean symuluj;

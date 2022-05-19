@@ -21,7 +21,9 @@ public class KreatorSwiata {
         JOptionPane.showConfirmDialog(null, form, "Podaj wielkosc planszy", JOptionPane.DEFAULT_OPTION);
         int x = 0, y=0;
 
+        if(!szerokosc.getText().equals(""))
         x = parseInt(szerokosc.getText());
+        if(!wysokosc.getText().equals(""))
         y = parseInt(wysokosc.getText());
 
         if(x > 0 && y > 0) {
@@ -40,7 +42,6 @@ public class KreatorSwiata {
             Scanner scanner = new Scanner(f);
             int x = scanner.nextInt();
             int y = scanner.nextInt();
-            //TODO zamykanie okien (jakas funkcja w swiecie najlepiej)
             swiat.okno.dispose();
             for(SluchaczLogow s : swiat.sluchaczeLogow)
                 s.Zamknij();
